@@ -1,12 +1,15 @@
-import React from 'react'
-import Counter from './store/components/Counter'
+import Counter from './components/Counter'
+import UserHolder from './components/UserHolder'
+
 
 
 function App() {
 
   return (
     <div>
-      <Counter/>
+     
+      <UserHolder/>
+      
     </div>
   )
 }
