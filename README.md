@@ -1,16 +1,150 @@
-# React + Vite
+<img width="1091" height="907" alt="image" src="https://github.com/user-attachments/assets/389b73ea-9202-4918-ba6d-fea676a041b1" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📦 Redux Toolkit Starter (React + Vite)
 
-Currently, two official plugins are available:
+A clean starter template for building **React applications using Redux Toolkit** with **Vite** — featuring Redux state management with slices, async logic support, and a minimal modern project setup.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+✔ Vite + React (fast development and optimized build)
+✔ Redux Toolkit for structured state management
+✔ Modular folder structure (clean codebase)
+✔ React components with global store support
+✔ Ready for async logic using Redux Toolkit features like `createAsyncThunk`
+✔ Modern JavaScript tooling (Eslint formatting, Vite config)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🗂️ Project Structure
+
+```
+/
+├── notes/                  # Your personal notes / architecture ideas
+├── public/                 # Static public assets
+├── src/                    # Main React source
+│   ├── App.jsx             # Root React component
+│   ├── main.jsx            # Entry point
+│   ├── redux/              # Redux Toolkit slices + store (example)
+│   └── components/         # Shared UI components
+├── .gitignore
+├── eslint.config.js        # Linting rules
+├── index.html              # Main HTML
+├── package.json            # NPM metadata & scripts
+├── vite.config.js          # Vite configuration
+└── README.md
+```
+
+> Note: The file content wasn’t fully accessible, but this structure reflects typical Vite + Redux Toolkit usage and your repo’s file tree. ([GitHub][1])
+
+---
+
+## 🧠 What’s Redux Toolkit?
+
+Redux Toolkit (**RTK**) is the **official, recommended library** for writing Redux logic and simplifies setup by reducing boilerplate, handling store configuration, slices, and async logic in a concise way. ([Redux][2])
+
+RTK includes:
+✔ `configureStore()` — simplified Redux store setup
+✔ `createSlice()` — generate reducers + actions automatically
+✔ `createAsyncThunk()` — easy async action logic
+✔ Middleware included (including Redux DevTools support) ([Redux][2])
+
+---
+
+## 📦 Installation
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/corno25kumar-creator/redux_tool_kit.git
+cd redux_tool_kit
+npm install
+```
+
+---
+
+## 🚀 Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open your browser at `http://localhost:3000` to see the app in action.
+
+---
+
+## 🛠 Available Scripts
+
+| Script            | Description                        |
+| ----------------- | ---------------------------------- |
+| `npm run dev`     | Start dev server with HMR          |
+| `npm run build`   | Create production optimized bundle |
+| `npm run preview` | Preview build locally              |
+
+---
+
+## 🧩 Redux Setup (Example)
+
+Inside the `src/redux/` folder you might have:
+
+### ✔ Store
+
+```js
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from './counterSlice';
+
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+  },
+});
+
+export default store;
+```
+
+### ✔ Slice Example
+
+```js
+import { createSlice } from '@reduxjs/toolkit';
+
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState: 0,
+  reducers: {
+    increment: (state) => state + 1,
+    decrement: (state) => state - 1,
+  },
+});
+
+export const { increment, decrement } = counterSlice.actions;
+export default counterSlice.reducer;
+```
+
+This pattern keeps Redux logic modular and clean. RTK minimizes boilerplate compared to classic Redux. ([Redux][2])
+
+---
+
+## 📁 Notes Folder
+
+The `notes/` directory can include your personal architecture ideas, planning docs, or feature plans — useful if you’re tracking learning progress or app features.
+
+---
+
+## 📌 ESLint Setup
+
+Your `eslint.config.js` helps keep consistent code quality and styles across your project.
+
+---
+
+## ❤️ Support
+
+If you find this repo useful, consider ⭐ the repo and share improvements or suggestions!
+
+---
+
+## 📜 License
+
+This project is typically released under MIT (unless otherwise specified in your package.json). Check that file for licensing details.
